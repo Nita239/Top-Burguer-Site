@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#000000">
+
+<title>Top Burguer | Cada mordida, uma experiência.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+
+  --bg: #000000;
+
+  --surface: #111111;
+
+  --red: #e53935;
+
+  --white: #ffffff;
+
+  --muted: #a5a5a5;
+
+}
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: 'Inter', sans-serif;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  font-family: 'Inter', sans-serif;
+
+  background: var(--bg);
+
+  color: var(--white);
+
+}
+
+header {
+
+  height: 85px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--bg);
+
+  border-bottom: 1px solid #222222;
+
+}
+
+.logo-image {
+
+  width: 145px;
+
+  height: 65px;
+
+  object-fit: contain;
+
+}
+
+.hero {
+
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 65px 8%;
+
+  background: var(--bg);
+
+}
+
+.hero-content {
+
+  max-width: 550px;
+
+  animation: appear .9s ease both;
+
+}
+
+.hero small {
+
+  color: var(--red);
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+}
+
+.hero h1 {
+
+  font-size: clamp(42px, 7vw, 72px);
+
+  line-height: 1.05;
+
+  margin: 18px 0;
+
+}
+
+.hero h1 span {
+
+  color: var(--red);
+
+}
+
+.hero p {
+
+  color: #bbbbbb;
+
+  line-height: 1.7;
+
+  margin-bottom: 30px;
+
+}
+
+section {
+
+  padding: 75px 8%;
+
+  background: var(--bg);
+
+}
+
+.section-title {
+
+  margin-bottom: 35px;
+
+}
+
+.section-title small {
+
+  color: var(--red);
+
+  letter-spacing: 2px;
+
+  font-weight: bold;
+
+}
+
+.section-title h2 {
+
+  font-size: 34px;
+
+  margin-top: 10px;
+
+}
+
+.section-title p {
+
+  color: var(--muted);
+
+  margin-top: 10px;
+
+}
+
+.products {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 18px;
+
+}
+
+.product {
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--surface);
+
+  padding: 23px;
+
+  border: 1px solid #292929;
+
+  border-radius: 12px;
+
+  transition: .3s;
+
+  animation: appear .7s ease both;
+
+}
+
+.product:hover {
+
+  transform: translateY(-6px);
+
+  border-color: var(--red);
+
+}
+
+.product h3 {
+
+  font-size: 18px;
+
+  margin-bottom: 12px;
+
+}
+
+.product .price {
+
+  color: var(--red);
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  margin-bottom: 20px;
+
+}
+
+.buy-btn {
+
+  display: block;
+
+  width: 100%;
+
+  margin-top: auto;
+
+  border: none;
+
+  background: #292929;
+
+  color: var(--white);
+
+  padding: 12px;
+
+  border-radius: 6px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .3s;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+}
+
+.buy-btn:hover {
+
+  background: var(--red);
+
+}
+
+.unavailable {
+
+  color: #ff7773;
+
+  font-size: 13px;
+
+  margin-top: 12px;
+
+}
+
+.drinks {
+
+  background: var(--bg);
+
+}
+
+footer {
+
+  padding: 35px 8%;
+
+  text-align: center;
+
+  background: var(--bg);
+
+  border-top: 1px solid #222222;
+
+}
+
+footer h3 {
+
+  font-size: 21px;
+
+  margin-bottom: 10px;
+
+}
+
+footer h3 span {
+
+  color: var(--red);
+
+}
+
+footer p {
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+}
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition: opacity .7s ease, transform .7s ease;
+
+}
+
+.reveal.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+@keyframes appear {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+@media(max-width: 650px) {
+
+  .logo-image {
+
+    width: 125px;
+
+  }
+
+  .hero {
+
+    min-height: 280px;
+
+    padding: 55px 6%;
+
+  }
+
+  section {
+
+    padding: 55px 6%;
+
+  }
+
+  .section-title h2 {
+
+    font-size: 29px;
+
+  }
+
+}
+
+@media(prefers-reduced-motion: reduce) {
+
+  *, *::before, *::after {
+
+    animation-duration: .01ms !important;
+
+    transition-duration: .01ms !important;
+
+    scroll-behavior: auto !important;
+
+  }
+
+  .reveal {
+
+    opacity: 1;
+
+    transform: none;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <img
+
+    src="https://raw.githubusercontent.com/Nita239/Top-Burguer-Site/6b90aa8d35ffd2a4985ab087d5a3d68186d67b04/Top%20Burguer%20-%201.png"
+
+    alt="Top Burguer"
+
+    class="logo-image"
+
+  >
+
+</header>
+
+<main>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <small>SEJA BEM-VINDO À TOP BURGUER</small>
+
+    <h1>
+
+      Cada mordida,<br>
+
+      <span>uma experiência.</span>
+
+    </h1>
+
+    <p>
+
+      Seu próximo sabor favorito está aqui.
+
+      Conheça nosso cardápio e faça seu pedido!
+
+    </p>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="section-title reveal">
+
+    <small>NOSSOS PRODUTOS</small>
+
+    <h2>Hambúrgueres</h2>
+
+    <p>Escolha seu favorito e faça seu pedido.</p>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product reveal">
+
+      <h3>Top Completo</h3>
+
+      <div class="price">R$ 12,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Completo" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Chicken</h3>
+
+      <div class="price">R$ 14,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Chicken" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Calabresa</h3>
+
+      <div class="price">R$ 14,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Calabresa" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Tudo</h3>
+
+      <div class="price">R$ 16,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Tudo" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+  </div>
+
+  <div class="section-title reveal" style="margin-top:65px">
+
+    <small>LINHA ESPECIAL</small>
+
+    <h2>Artesanais</h2>
+
+    <p>Mais opções para experimentar.</p>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product reveal">
+
+      <h3>Top Blend</h3>
+
+      <div class="price">R$ 15,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Blend" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Chesser</h3>
+
+      <div class="price">R$ 18,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Chesser" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Bacon</h3>
+
+      <div class="price">R$ 20,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Bacon" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Duplo</h3>
+
+      <div class="price">R$ 25,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Duplo" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Top Sertanejo</h3>
+
+      <div class="price">R$ 28,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Top%20Sertanejo" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+  </div>
+
+  <div class="section-title reveal" style="margin-top:65px">
+
+    <small>OUTRAS OPÇÕES</small>
+
+    <h2>Cachorros-quentes</h2>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product reveal">
+
+      <h3>Hot Dog Tradicional</h3>
+
+      <div class="price">R$ 8,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Hot%20Dog%20Tradicional" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Hot Dog de Frango</h3>
+
+      <div class="price">R$ 10,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Hot%20Dog%20de%20Frango" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Hot Dog de Carne de Sol</h3>
+
+      <div class="price">R$ 12,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Hot%20Dog%20de%20Carne%20de%20Sol" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="drinks">
+
+  <div class="section-title reveal">
+
+    <small>PARA ACOMPANHAR</small>
+
+    <h2>Bebidas</h2>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product reveal">
+
+      <h3>Lata de Coca-Cola</h3>
+
+      <div class="price">R$ 6,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20a%20Lata%20de%20Coca-Cola" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Lata de Guaraná</h3>
+
+      <div class="price">R$ 6,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20a%20Lata%20de%20Guaran%C3%A1" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Refrigerante 1L Pepsi</h3>
+
+      <div class="price">R$ 10,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Refrigerante%201L%20Pepsi" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+    <article class="product reveal">
+
+      <h3>Refrigerante 1L Guaraná</h3>
+
+      <div class="price">R$ 10,00</div>
+
+      <a class="buy-btn" href="https://wa.me/5584996844639?text=Boa%20Noite%21%0A%0AEu%20quero%20o%20Refrigerante%201L%20Guaran%C3%A1" target="_blank" rel="noopener">Comprar Agora</a>
+
+    </article>
+
+  </div>
+
+  <div class="section-title reveal" style="margin-top:65px">
+
+    <small>ESGOTADO TEMPORARIAMENTE</small>
+
+    <h2>Mini Pizza</h2>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product reveal">
+
+      <h3>Mini Pizza</h3>
+
+      <p class="unavailable">Indisponível no momento</p>
+
+    </article>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+
+  <h3>TOP <span>BURGUER</span></h3>
+
+  <p>Cada mordida, uma experiência.</p>
+
+  <p>© Top Burguer. Todos os direitos reservados.</p>
+
+</footer>
+
+<script>
+
+// ANIMAÇÕES
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      entry.target.classList.add("visible");
+
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+}, {
+
+  threshold: 0.12
+
+});
+
+document.querySelectorAll(".reveal")
+
+  .forEach(elemento => observer.observe(elemento));
+
+</script>
+
+</body>
+
+</html>
